@@ -1,10 +1,12 @@
 import os
 from datetime import datetime
 import subprocess
+import sys
 
 class ChatArchiver:
-    def __init__(self):
-        self.base_dir = os.path.join(os.path.dirname(__file__), 'docs')
+    def __init__(self, category):
+        # 确保使用正确的子目录
+        self.base_dir = os.path.join(os.path.dirname(__file__), category, 'docs')
         os.makedirs(self.base_dir, exist_ok=True)
 
     def save_chat(self, content=None):
@@ -28,12 +30,14 @@ class ChatArchiver:
             return False
 
     def _git_backup(self, file_path):
-        """Git 备份（只进行本地提交）"""
         try:
+            # 切换到主目录进行 Git 操作
+            git_dir = os.path.dirname(os.path.dirname(__file__))
+            os.chdir(git_dir)
+            
             commands = [
                 f"git add {file_path}",
                 f'git commit -m "docs: 保存对话 - {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}"'
-                # 移除 push 命令，由 pushall 统一处理
             ]
             
             for cmd in commands:
@@ -48,5 +52,6 @@ class ChatArchiver:
             return False
 
 if __name__ == "__main__":
-    archiver = ChatArchiver()
+    category = sys.argv[1] if len(sys.argv) > 1 else "study"
+    archiver = ChatArchiver(category)
     archiver.save_chat()
