@@ -1,3 +1,3 @@
 #!/bin/bash
-CATEGORY=${1:-study}  # 默认保存到 study 目录
-python3 save_chat.py "$CATEGORY"
+# 使用主目录下的 save_chat.py，传入分类参数
+python3 save_chat.py "$1"

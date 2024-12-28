@@ -5,7 +5,8 @@ import sys
 
 class ChatArchiver:
     def __init__(self, category):
-        self.base_dir = os.path.join(os.path.dirname(__file__), category, 'docs')
+        self.root_dir = os.path.dirname(os.path.abspath(__file__))
+        self.base_dir = os.path.join(self.root_dir, category, 'docs')
         os.makedirs(self.base_dir, exist_ok=True)
         # 设置 Git 根目录
         self.git_dir = os.path.dirname(__file__)  # topsir 目录
