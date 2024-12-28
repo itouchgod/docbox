@@ -5,9 +5,10 @@ import sys
 
 class ChatArchiver:
     def __init__(self, category):
-        # 确保使用正确的子目录
         self.base_dir = os.path.join(os.path.dirname(__file__), category, 'docs')
         os.makedirs(self.base_dir, exist_ok=True)
+        # 设置 Git 根目录
+        self.git_dir = os.path.dirname(__file__)  # topsir 目录
 
     def save_chat(self, content=None):
         try:
@@ -31,9 +32,8 @@ class ChatArchiver:
 
     def _git_backup(self, file_path):
         try:
-            # 切换到主目录进行 Git 操作
-            git_dir = os.path.dirname(os.path.dirname(__file__))
-            os.chdir(git_dir)
+            # 切换到 Git 根目录
+            os.chdir(self.git_dir)
             
             commands = [
                 f"git add {file_path}",
