@@ -1,0 +1,33 @@
+# 主题方案
+scheme: Gemini
+
+# 自定义样式
+custom_file_path:
+  style: source/css/custom.css
+
+# 暗色模式
+darkmode: true
+
+# 阅读进度条
+reading_progress:
+  enable: true
+  color: "#0066cc"
+  height: 2px
+
+# 返回顶部按钮
+back2top:
+  enable: true
+  sidebar: false
+  scrollpercent: true
+  background: "#0066cc"
+
+# 页脚设置
+footer:
+  # 版权信息
+  copyright: '&copy; {year} <i class="fa fa-heart"></i> <a href="https://www.luosir.top">LuoSir</a>'
+  
+  # 移除默认的 powered by 信息
+  powered: false
+
+  # 或者如果你想保留但自定义框架信息，可以这样设置：
+  # powered: 'Powered by <a href="https://hexo.io">Hexo</a> & <a href="https://theme-next.js.org/">NexT</a>'

@@ -1,0 +1,90 @@
+/* Apple 风格基础样式 */
+:root {
+  --apple-bg: #ffffff;
+  --apple-text: #1d1d1f;
+  --apple-link: #0066cc;
+  --apple-border: #d2d2d7;
+  --apple-shadow: rgba(0, 0, 0, 0.1);
+  --apple-highlight: #0071e3;
+}
+
+/* 文章内容样式 */
+.markdown-body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--apple-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 文章容器 */
+.post-content {
+  background: var(--apple-bg);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 2px 12px var(--apple-shadow);
+  margin: 1.5rem auto;
+  max-width: 800px;
+}
+
+/* 按钮样式 */
+.btn {
+  background: var(--apple-highlight);
+  color: white;
+  border-radius: 980px;
+  padding: 8px 16px;
+  font-size: 17px;
+  font-weight: 400;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background: #0077ED;
+  transform: scale(1.02);
+}
+
+/* 链接样式 */
+a {
+  color: var(--apple-link);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #004499;
+}
+
+/* 卡片样式 */
+.card {
+  background: var(--apple-bg);
+  border-radius: 18px;
+  border: 1px solid var(--apple-border);
+  padding: 24px;
+  margin: 16px 0;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px var(--apple-shadow);
+}
+
+/* 导航栏样式 */
+.navbar {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid var(--apple-border);
+}
+
+/* 暗色模式支持 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --apple-bg: #1d1d1f;
+    --apple-text: #f5f5f7;
+    --apple-link: #2997ff;
+    --apple-border: #424245;
+    --apple-shadow: rgba(0, 0, 0, 0.3);
+    --apple-highlight: #0a84ff;
+  }
+}
