@@ -18,3 +18,6 @@ vendor/
 cursor_env/
 venv/
 env/ 
+
+# 其他
+.editnotes
